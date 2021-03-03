@@ -1,5 +1,3 @@
-package com;
-
 import java.util.ArrayList;
 
 import static java.util.Arrays.asList;

@@ -1,6 +1,3 @@
-package com;
-
-
 public class Officer {
 
     private String name;
