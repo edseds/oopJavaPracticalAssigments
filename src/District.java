@@ -5,23 +5,36 @@ public class District {
     private String title;
     private String city;
     private int districtId;
-    private ArrayList<Officer> officersInTheDistrict;
+    private ArrayList<Person> personsInTheDistrict = new ArrayList<>();
 
     public District() {
     }
 
-    public District(String title, String city, int districtId, ArrayList<Officer> officers)
+    public District(String title, String city, int districtId)
     {
         this.title = title;
         this.city = city;
         this.districtId = districtId;
-        officersInTheDistrict = new ArrayList<>(officers);
     }
 
-    public boolean addNewOfficer(Officer officer)
+    public boolean addNewPerson(Person person)
     {
-        officersInTheDistrict.add(officer);
-        return true;
+        if(person != null) {
+            personsInTheDistrict.add(person);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removePerson(String name, String surname)
+    {
+        if(!name.isEmpty() && !surname.isEmpty()) {
+            personsInTheDistrict.removeIf(person -> person.getName().equals(name)
+                    && person.getSurname().equals(surname));
+            return true;
+
+        }
+        return false;
     }
 
     public int getDistrictId() {
@@ -30,14 +43,6 @@ public class District {
 
     public void setDistrictId(int districtId) {
         this.districtId = districtId;
-    }
-
-    public ArrayList<Officer> getOfficersInTheDistrict() {
-        return officersInTheDistrict;
-    }
-
-    public void setOfficersInTheDistrict(ArrayList<Officer> officersInTheDistrict) {
-        this.officersInTheDistrict = officersInTheDistrict;
     }
 
     public String getTitle() {
@@ -56,5 +61,8 @@ public class District {
         this.city = city;
     }
 
-
+    @Override
+    public String toString() {
+        return title + " "+ city + " " + districtId + " " + personsInTheDistrict;
+    }
 }

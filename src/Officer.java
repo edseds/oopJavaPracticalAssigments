@@ -1,16 +1,13 @@
-public class Officer {
+public class Officer extends Person{
 
-    private String name;
-    String surname;
-    public int officerID;
-    private String workingDistrict;
+    private int officerID;
     private int crimesSolved;
 
     public Officer(String name, String surname, int officerID, int crimesSolved) {
-        this.name = name;
-        this.surname = surname;
         this.officerID = officerID;
         this.crimesSolved = crimesSolved;
+        super.setName(name);
+        super.setSurname(surname);
     }
 
     public Officer() {
@@ -18,22 +15,6 @@ public class Officer {
 
     public int calculatedLevel() {
         return 0;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public int getOfficerID() {
@@ -44,14 +25,6 @@ public class Officer {
         this.officerID = officerID;
     }
 
-    public String getWorkingDistrict() {
-        return workingDistrict;
-    }
-
-    public void setWorkingDistrict(String workingDistrict) {
-        this.workingDistrict = workingDistrict;
-    }
-
     public int getCrimesSolved() {
         return crimesSolved;
     }
@@ -60,8 +33,8 @@ public class Officer {
         this.crimesSolved = crimesSolved;
     }
 
+    @Override
     public String toString() {
-        return name + ", " + surname + ", " + officerID + ", " + workingDistrict + ", " + crimesSolved + ".";
+        return super.getName() + ", " + super.getSurname() + ", " + officerID + ", " + ", " + crimesSolved + ".";
     }
-
 }

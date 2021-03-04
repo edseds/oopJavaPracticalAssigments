@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static java.util.Arrays.asList;
 
@@ -6,6 +7,29 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Officer officer = new Officer("Clarice", "Starling", 22894, 75);
+        Officer officer2 = new Officer("Clarice2", "Starling2", 22895, 76);
+
+        Lawyer lawyer = new Lawyer("Clarice3", "Starling3", 22897, 77);
+        Lawyer lawyer2 = new Lawyer("Clarice4", "Starling4", 22898, 78);
+
+        District district = new District("District 10", "Riga", 10);
+
+        district.addNewPerson(officer);
+        district.addNewPerson(officer2);
+        district.addNewPerson(lawyer);
+        district.addNewPerson(lawyer2);
+
+        district.removePerson("Clarice3", "Starling3");
+
+        System.out.println(district.toString());
+
+
+
+
+
+
+/*
         ArrayList<District> districts = new ArrayList<>();
 
         ArrayList<Officer> officers = new ArrayList<>(asList(
@@ -37,7 +61,7 @@ public class Main {
                 System.out.format("Officer name %s and surname %s%n",officer.getName(),officer.getSurname());
             }
         }
-
+*/
 
 
     }
