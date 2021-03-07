@@ -29,8 +29,7 @@ public class District {
 
     public boolean removeOfficer(int officerId) {
         if (officerId > 0 && officersInTheDistrict
-                .stream().filter(officer -> officer.officerID == officerId)
-                .findAny() != null) {
+                .stream().anyMatch(officer -> officer.officerID == officerId)) {
             officersInTheDistrict.removeIf(officer -> officer.officerID == officerId);
         }
 
