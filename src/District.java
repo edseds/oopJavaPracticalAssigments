@@ -20,9 +20,23 @@ public class District {
 
     public boolean addNewOfficer(Officer officer)
     {
-        officersInTheDistrict.add(officer);
-        return true;
+        if(officer!=null) {
+            officersInTheDistrict.add(officer);
+            return true;
+        }
+        return false;
     }
+
+    public boolean removeOfficer(int officerId) {
+        if (officerId > 0 && officersInTheDistrict
+                .stream().filter(officer -> officer.officerID == officerId)
+                .findAny() != null) {
+            officersInTheDistrict.removeIf(officer -> officer.officerID == officerId);
+        }
+
+        return false;
+    }
+
 
     public int getDistrictId() {
         return districtId;

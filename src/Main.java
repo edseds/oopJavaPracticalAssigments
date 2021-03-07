@@ -22,8 +22,13 @@ public class Main {
         ));
 
         districts.add(new District("District10", "Sigulda",9,officers));
+
+
         districts.get(0).addNewOfficer(new Officer("Added Officer", "Added Starling",
                 22894, 75));
+
+        districts.get(0).removeOfficer(22894);
+
 
 
 
